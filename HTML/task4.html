@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>task4</h1>
+    <script>
+        var units=Number(("enter the number of units consumed"));
+        if(units<100)
+    {
+        var bill=units*2;
+        console.log("Your bill is:"+bill+'₹');
+    }
+    else if(units>100&&units<200)
+    {
+        var bill=(100*2)+((units-100)*3);
+        console.log("Your bill is:"+bill+'₹');
+    }
+    else if(units>200)
+    {
+        var bill=(100*2)+(100*3)+((units-200)*5);
+        console.log("Your bill is:"+bill+'₹');
+    } 
+    </script>
+</body>
+</html>
