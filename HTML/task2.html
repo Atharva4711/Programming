@@ -1,0 +1,23 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ </head>
+ <body>
+    <h1>Task2</h1>
+    <script>
+       var a=Number(prompt("Enter a number"));
+       var b=Number(prompt("Enter another number"));
+       var c=Number(prompt("Enter one more number"));
+       var max=a>b&&a>c?a:(b>c?b:c);
+       console.log("The maximum number is: ",max);
+         var min=a<b&&a<c?a:(b<c?b:c);  
+         console.log("The minimum number is: ",min);
+
+       var mid=(a+b+c)-max-min;
+       console.log("The middle number is: ",mid);
+    </script>
+ </body>
+ </html>
