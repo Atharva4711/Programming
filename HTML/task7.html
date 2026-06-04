@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Task 7</h1>
+    <script>
+        var num1 = Number(prompt("Enter a number:"));
+        var num2 = Number(prompt("Enter another number:"));
+        var choice = Number(prompt("Choose an operation:\n1. Addition\n2. Subtraction\n3. Multiplication\n4. Division"));
+        switch (choice) {
+            case 1:
+                console.log("Result: " + (num1 + num2));
+                break;
+            case 2:
+                console.log("Result: " + (num1 - num2));
+                break;
+            case 3:
+                console.log("Result: " + (num1 * num2));
+                break;
+            case 4:
+                if (num2 !== 0) {
+                    console.log("Result: " + (num1 / num2));
+                } else {
+                    console.log("Error: Division by zero is not allowed.");
+                }
+                break;
+            default:
+                console.log("Invalid choice. Please select a valid operation.");
+        }
+    </script>
+</body>
+</html>
