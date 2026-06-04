@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Task 8</h1>
+    <script>
+        var balance = Number(prompt("Enter your current account balance:"));
+        var choice = Number(prompt("Choose a transaction:\n1. Exit\n2. Deposit\n3. Withdraw\n4. Check Balance"));
+        switch (choice) {
+            case 1:
+                console.log("Thank you for using our services. Goodbye!");
+                break;
+            case 2:
+                var depositAmount = Number(prompt("Enter the amount to deposit:"));
+                balance += depositAmount;
+                console.log("Deposit successful! Your new balance is: ₹" + balance);
+                break;
+            case 3:
+                var withdrawAmount = Number(prompt("Enter the amount to withdraw:"));
+                if (withdrawAmount <= balance) {
+                    balance -= withdrawAmount;
+                    console.log("Withdrawal successful! Your new balance is: ₹" + balance);
+                } else {
+                    console.log("Error: Insufficient funds. Your current balance is: ₹" + balance);
+                }
+                break;
+            case 4:
+                console.log("Your current account balance is: ₹" + balance);
+                break;
+            default:
+                console.log("Invalid choice. Please select a valid transaction.");
+        }
+    </script>
+</body>
+</html>
