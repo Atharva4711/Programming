@@ -1,0 +1,369 @@
+//qustion:check if the number is positive, negative or zero
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Task 9-22</h1>
+    <script>
+        var num =number=prompt("Enter a number:");
+        if(num>0){
+            console.log("The number is positive.");
+        }
+        else if(num<0){
+            console.log("The number is negative.");
+        }
+        else{
+            console.log("The number is zero.");
+        }
+    </script>
+</body>
+</html> -->
+//question: check number is even or odd
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Task 9-22</h1>
+    <script>
+       var num = Number(prompt("Enter a number:"));
+        if (num%2 === 0) {
+            console.log("The number is even.");
+        } else {
+            console.log("The number is odd.");
+        }
+    </script>
+</body>
+</html> -->
+//question : check id divided by 5
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Task 9-22</h1>
+    <script>
+        var num = Number(prompt("Enter a number:"));
+        if (num % 5 === 0) {
+            console.log("The number is divisible by 5.");
+        } else {
+            console.log("The number is not divisible by 5.");
+        }
+    </script>
+</body>
+</html> -->
+<!-- //question : check whether eligible for voting or not
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Task 9-22</h1>
+    <script>
+        var age = Number(prompt("Enter your age:"));
+        if (age >= 18) {
+            console.log("You are eligible to vote.");
+        } else {
+            console.log("You are not eligible to vote.");
+        }
+    </script>
+</body>
+</html> -->
+//question : display "pass" if marks are greater than 40 otherwise display "fail"
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Task 9-22</h1>
+    <script>
+        var marks = Number(prompt("Enter your marks:"));
+        if (marks > 40) {
+            console.log("Pass");
+        } else {
+            console.log("Fail");
+        }
+    </script>
+</body>
+</html> -->
+//question : check whether a vowel or consonant
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>task 9-22</h1>
+    <script>
+        var alphabet = prompt("Enter an alphabet:");
+        if (/[aeiouAEIOU]/.test(alphabet)) {
+            console.log("The alphabet is a vowel.");
+        } else if (/[a-zA-Z]/.test(alphabet)) {
+            console.log("The alphabet is a consonant.");
+        } else {
+            console.log("Invalid input. Please enter a single alphabet.");
+        }
+    </script>
+</body>
+</html> -->
+//question : check whether the year is leap year or not
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Task 9-22</h1>
+    <script>
+        var year = Number(prompt("Enter a year:"));
+        if ((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)) {
+            console.log(year + " is a leap year.");
+        } else {
+            console.log(year + " is not a leap year.");
+        }
+    </script>
+</body> 
+</html> -->
+//question : write a program to clasify the age of a person
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>  
+    <h1>Task 9-22</h1>
+    <script>
+        var age = Number(prompt("Enter your age:"));
+        if (age >= 0 && age <= 12) {
+            console.log("You are a child.");
+        } else if (age > 12 && age <= 19) {
+            console.log("You are a teenager.");
+        } else if (age > 19 && age <= 59) {
+            console.log("You are an adult.");
+        } else if (age >= 60) {
+            console.log("You are a senior citizen.");
+        } else {
+            console.log("Invalid age entered.");
+        }
+    </script>
+</body>
+</html> -->
+//question : check whether the student is pass in all subjects or not
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Task 9-22</h1>
+    <script>
+        var subject1 = Number(prompt("Enter marks for subject 1:"));
+        var subject2 = Number(prompt("Enter marks for subject 2:"));
+        var subject3 = Number(prompt("Enter marks for subject 3:"));
+
+        if (subject1 > 40 && subject2 > 40 && subject3 > 40) {
+            console.log("The student has passed in all subjects.");
+        } else {
+            console.log("The student has not passed in all subjects.");
+        }
+    </script>
+</body>
+</html> -->
+question : check whether the person is eligible for a driving license or not
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Task 9-22</h1>
+    <script>
+        var age = Number(prompt("Enter your age:"));
+        if (age >= 18) {
+            console.log("You are eligible for a driving license.");
+        } else {
+            console.log("You are not eligible for a driving license.");
+        }
+    </script>
+</body>
+</html> -->
+question : write a program to print day of the week based on the number entered by the user
+<!-- <!DOCTYPE html>
+<html lang="en">   
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Task 9-22</h1>
+    <script>
+        var dayNumber = Number(prompt("Enter a number (1-7) to get the corresponding day of the week:"));
+       switch (dayNumber) {
+            case 1:
+                console.log("Monday");
+                break;
+            case 2:
+                console.log("Tuesday");
+                break;
+            case 3:
+                console.log("Wednesday");
+                break;
+            case 4:
+                console.log("Thursday");
+                break;
+            case 5:
+                console.log("Friday");
+                break;
+            case 6:
+                console.log("Saturday");
+                break;
+            case 7:
+                console.log("Sunday");
+                break;
+            default:
+                console.log("Invalid input. Please enter a number between 1 and 7.");
+        }
+    </script>
+</body>
+</html> -->
+//question : write a program to print month name using number
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>task 9-22</h1>
+    <script>
+        var monthNumber = Number(prompt("Enter a number (1-12) to get the corresponding month name:"));
+        switch (monthNumber) {
+            case 1:
+                console.log("January");
+                break;
+            case 2:
+                console.log("February");
+                break;
+            case 3:
+                console.log("March");
+                break;
+            case 4:
+                console.log("April");
+                break;
+            case 5:
+                console.log("May");
+                break;
+            case 6:
+                console.log("June");
+                break;
+            case 7:
+                console.log("July");
+                break;
+            case 8:
+                console.log("August");
+                break;
+            case 9:
+                console.log("September");
+                break;
+            case 10:
+                console.log("October");
+                break;
+            case 11:
+                console.log("November");
+                break;
+            case 12:
+                console.log("December");
+                break;
+            default:
+                console.log("Invalid input. Please enter a number between 1 and 12.");
+        }
+    </script>
+</body>
+</html> -->
+question : write a program to check vowel or consonant using switch case
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Task 9-22</h1>
+    <script>
+        var alphabet = prompt("Enter an alphabet:");
+        switch (alphabet) {
+            case 'a':
+            case 'e':
+            case 'i':
+            case 'o':
+            case 'u':
+                console.log("The alphabet is a vowel.");
+                break;
+            default:
+                if (/[a-zA-Z]/.test(alphabet)) {
+                    console.log("The alphabet is a consonant.");
+                } else {
+                    console.log("Invalid input. Please enter a single alphabet.");
+                }
+        }
+    </script>
+</body>
+</html> -->
+//question : write a program to display menu of food items using switch case
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Task 9-22</h1>
+    <script>
+        var foodItem = prompt("Enter a food item (e.g., pizza, burger, pasta):");
+        switch (foodItem) {
+            case 'pizza':
+                console.log("You selected Pizza. Price: $10");
+                break;
+            case 'burger':
+                console.log("You selected Burger. Price: $5");
+                break;
+            case 'pasta':
+                console.log("You selected Pasta. Price: $8");
+                break;
+            default:
+                console.log("Sorry, we don't have that food item on the menu.");
+        }
+    </script>
+</body>
+</html> -->
+//end of task 9-22...
