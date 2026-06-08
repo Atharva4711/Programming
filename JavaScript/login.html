@@ -19,7 +19,8 @@
            var a = document.getElementById("user");
            var b = document.getElementById("pass");
            msg.innerHTML = "hello " + a.value;
-           console.log(a);
+           console.log(a.value);
+           console.log(b.value);
            if(a.value == "admin" && b.value == "admin"){
                msg.innerHTML = "Login Successfull";
            }
