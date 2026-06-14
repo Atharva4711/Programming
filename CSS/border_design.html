@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Border Radius Shapes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            margin: 50px;
+        }
+
+        .shape-container {
+            margin-bottom: 40px;
+        }
+
+        .shape {
+            display: inline-block;
+            vertical-align: top;
+            text-align: center;
+            color: white;
+            font-size: 11px;
+            font-weight: bold;
+            margin-right: 20px;
+        }
+
+        /* --- Top Row Shapes --- */
+
+        .leaf {
+            background-color: #5bc2f7;
+            width: 120px;
+            height: 120px;
+            border-radius: 0 100% 0 100%;
+            line-height: 120px;
+        }
+
+        .half-oval {
+            background-color: #0000ff;
+            width: 240px;
+            height: 120px;
+            border-radius: 0 0 120px 120px;
+            line-height: 120px;
+        }
+
+        .oval {
+            background-color: #f5af3c;
+            width: 240px;
+            height: 120px;
+            border-radius: 50%;
+            line-height: 120px;
+        }
+
+        .twist {
+            background-color: #337a24;
+            width: 240px;
+            height: 120px;
+            border-radius: 100% 0 100% 0;
+            line-height: 120px;
+        }
+
+        /* --- Bottom Row Shapes --- */
+
+        .twist-two {
+            background-color: #7b1fa2;
+            width: 240px;
+            height: 120px;
+            border-radius: 0 100% 0 100%;
+            line-height: 120px;
+        }
+
+        .circle {
+            background-color: #f032ec;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            line-height: 120px;
+        }
+
+        .tab {
+            background-color: #4faaf5;
+            width: 120px;
+            height: 120px;
+            border-radius: 0 0 60px 60px;
+            line-height: 120px;
+        }
+
+        .three-sided {
+            background-color: #0000ed;
+            width: 120px;
+            height: 120px;
+            border-radius: 0 0 100% 100%;
+            line-height: 120px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="shape-container">
+        <div class="shape leaf">Leaf</div>
+        <div class="shape half-oval">Half Oval</div>
+        <div class="shape oval">Oval</div>
+        <div class="shape twist">Twist</div>
+    </div>
+
+    <div class="shape-container">
+        <div class="shape twist-two">Twist Two</div>
+        <div class="shape circle">Circle</div>
+        <div class="shape tab">Tab</div>
+        <div class="shape three-sided">Three Sided</div>
+    </div>
+
+</body>
+</html>

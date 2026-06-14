@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Card</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #dbeafe;
+            margin: 0;
+            padding-top: 100px;
+        }
+
+        .card {
+            background-color: #f0f7ff;
+            width: 450px;
+            margin: 0 auto;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .profile-pic {
+            width: 85px;
+            height: 85px;
+            border-radius: 50%;
+            float: left;
+            margin-right: 20px;
+            object-fit: cover;
+        }
+
+        .content {
+            margin-left: 105px;
+        }
+
+        .name {
+            margin: 0;
+            font-size: 22px;
+            color: #111827;
+        }
+
+        .username {
+            margin: 2px 0 10px 0;
+            color: #4b5563;
+            font-size: 14px;
+        }
+
+        .bio {
+            margin: 0 0 15px 0;
+            font-size: 14px;
+            color: #374151;
+            line-height: 1.4;
+        }
+
+        .stats {
+            margin-bottom: 20px;
+        }
+
+        .stat-box {
+            display: inline-block;
+            margin-right: 25px;
+        }
+
+        .stat-num {
+            display: block;
+            font-weight: bold;
+            font-size: 15px;
+            color: #111827;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #6b7280;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 8px 18px;
+            font-size: 13px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .btn-follow {
+            background-color: #1f2937;
+            color: white;
+            border: none;
+            margin-right: 10px;
+        }
+
+        .btn-view {
+            background-color: transparent;
+            color: #1f2937;
+            border: 1px solid #9ca3af;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <img class="profile-pic" src="https://cdn.mos.cms.futurecdn.net/6YsNbGNze9dQR3YbY5kKh3.jpg" alt="Profile">
+
+        <div class="content">
+            <h2 class="name">FAILURE</h2>
+            <div class="username">@FAILURE</div>
+            <p class="bio">I'm a Front End Developer, follow me to be the first who see my new work.</p>
+            
+            <div class="stats">
+                <div class="stat-box">
+                    <span class="stat-num">15K</span>
+                    <span class="stat-label">Views</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-num">82</span>
+                    <span class="stat-label">Projects</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-num">1.3M</span>
+                    <span class="stat-label">Followers</span>
+                </div>
+            </div>
+
+            <div class="buttons">
+                <button class="btn btn-follow">Follow</button>
+                <button class="btn btn-view">View profile</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
