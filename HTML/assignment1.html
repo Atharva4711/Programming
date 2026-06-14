@@ -45,3 +45,188 @@
 </ol>
 </body>
 </html>
+
+//assignment 2
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Task 8</h1>
+    <script>
+        var balance = Number(prompt("Enter your current account balance:"));
+        var choice = Number(prompt("Choose a transaction:\n1. Exit\n2. Deposit\n3. Withdraw\n4. Check Balance"));
+        switch (choice) {
+            case 1:
+                console.log("Thank you for using our services. Goodbye!");
+                break;
+            case 2:
+                var depositAmount = Number(prompt("Enter the amount to deposit:"));
+                balance += depositAmount;
+                console.log("Deposit successful! Your new balance is: ₹" + balance);
+                break;
+            case 3:
+                var withdrawAmount = Number(prompt("Enter the amount to withdraw:"));
+                if (withdrawAmount <= balance) {
+                    balance -= withdrawAmount;
+                    console.log("Withdrawal successful! Your new balance is: ₹" + balance);
+                } else {
+                    console.log("Error: Insufficient funds. Your current balance is: ₹" + balance);
+                }
+                break;
+            case 4:
+                console.log("Your current account balance is: ₹" + balance);
+                break;
+            default:
+                console.log("Invalid choice. Please select a valid transaction.");
+        }
+    </script>
+</body>
+</html> -->
+
+// assignment 3
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html>
+<head>
+    <title>Resume</title>
+</head>
+<body>
+
+    <center>
+        <h1><u>RESUME</u></h1>
+    </center>
+
+    <table border="3" cellpadding="10" cellspacing="0" width="100%">
+        <tr>
+            <td width="30%" valign="top">
+                <center>
+                    <img src="https://tse4.mm.bing.net/th/id/OIP.eBy5gkErI02cVA7ptCrCWQHaJj?pid=Api&P=0&h=180" alt="Profile Picture" width="100%">
+                </center>
+                <br><br>
+                
+                <ul>
+                    <li><b>NAME:</b></li>
+                    <p>SHAHIN SHABBIR MOMIN</p>
+                    
+                    <li><b>DOB:</b></li>
+                    <p>10 <sup>TH</sup>/MARCH/1998</p>
+                    
+                    <li><b>EMAIL:</b></li>
+                    <p>smomin201819@gmail.com</p>
+                    
+                    <li><b>CONTACT:</b></li>
+                    <p>9561***749</p>
+                    
+                    <li><b>PLACE:</b></li>
+                    <p>pune</p>
+                </ul>
+            </td>
+
+            <td width="70%" valign="top">
+                
+                <table border="1" cellpadding="10" cellspacing="0" width="100%">
+                    
+                    <tr>
+                        <td width="25%" align="center"><b><u>OBJECTIVE</u></b></td>
+                        <td>
+                            To obtain a position of responsibility that utilizes my skills and keen to work in any environment where i can use my knowledge.
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td align="center"><b><u>SKILLS</u></b></td>
+                        <td>
+                            <ul>
+                                <li><b>SQL -</b></li>
+                                <ol>
+                                    <li>Good understanding of RDBMS</li>
+                                    <li>JOINS</li>
+                                    <li>SQL Queries</li>
+                                    <li>DDL,DML,TCL</li>
+                                </ol>
+                                
+                                <li><b>CORE JAVA -</b></li>
+                                <ol>
+                                    <li>Decision making statement</li>
+                                    <li>Looping statement</li>
+                                    <li>Methods</li>
+                                </ol>
+                                
+                                <li><b>WEB-TECH -</b></li>
+                                <ol>
+                                    <li>HTML</li>
+                                </ol>
+                            </ul>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td align="center"><b><u>PROJECT</u></b></td>
+                        <td>
+                            <ul>
+                                <li>
+                                    <b>ACADAEMIC PROJECT</b> - Project work on Deposition of thin film by SILAR method for super capacitor applications.
+                                </li>
+                                <br>
+                                <li>
+                                    Working on web design
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td align="center"><b><u>ACADEMICS DETAILS</u></b></td>
+                        <td>
+                            <table border="1" cellpadding="10" cellspacing="0" width="100%">
+                                <tr align="center">
+                                    <td><b>COURSE</b></td>
+                                    <td><b>BOARD/UNIVERSITY</b></td>
+                                    <td><b>%/CGPA</b></td>
+                                    <td><b>YOP</b></td>
+                                </tr>
+                                <tr align="center">
+                                    <td>10 <sup>TH</sup></td>
+                                    <td>SHIVAJI UNIVERSITY</td>
+                                    <td>69.40%</td>
+                                    <td>2013</td>
+                                </tr>
+                                <tr align="center">
+                                    <td>12 <sup>TH</sup></td>
+                                    <td>SHIVAJI UNIVERSITY</td>
+                                    <td>60.31%</td>
+                                    <td>2015</td>
+                                </tr>
+                                <tr align="center">
+                                    <td>BTec<br>(E&TC)</td>
+                                    <td>SHIVAJI UNIVERSITY</td>
+                                    <td>73.24%</td>
+                                    <td>2019</td>
+                                </tr>
+                                <tr align="center">
+                                    <td>MTec<br>(E&TC)</td>
+                                    <td>SHIVAJI UNIVERSITY</td>
+                                    <td>70.5%</td>
+                                    <td>2022</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                </table> </td>
+        </tr>
+    </table> </body>
+</html>
+</body>
+</html> -->
