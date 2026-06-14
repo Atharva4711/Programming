@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Employee Punch In</h1>
+    <input type="text" name="" id="user" placeholder="employee name">
+    <br>
+    <input type="text" name="" id="id" placeholder="employee id">
+    <br>
+    <input type="text" name="" id="time" placeholder="punch in time">
+    <br>
+    <button onclick="getData()">Submit</button>
+    <h1 id="msg"></h1>
+    <script>
+        
+        function getData(){
+           var msg = document.getElementById("msg");
+           var a = document.getElementById("user");
+           var b = document.getElementById("id");
+           var c = document.getElementById("time");
+           console.log(a.value);
+           console.log(b.value);
+           console.log(c.value);
+           <table>
+            <tr>
+                <th>Employee Name</th>
+                <th>Employee ID</th>
+                <th>Punch In Time</th>
+            </tr>
+            <tr>
+                <td>a.value</td>
+                <td>b.value</td>
+                <td>c.value</td>
+            </tr>
+           </table>
+              msg.innerHTML = "Employee Name: " + a.value + "<br>" + "Employee ID: " + b.value + "<br>" + "Punch In Time: " + c.value;
+        }
+
+    </script>
+    
+</body>
+</html>
