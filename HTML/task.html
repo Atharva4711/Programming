@@ -15,3 +15,249 @@
     </script>
  </body>
  </html>
+
+  <!-- <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ </head>
+ <body>
+    <h1>Task2</h1>
+    <script>
+       var a=Number(prompt("Enter a number"));
+       var b=Number(prompt("Enter another number"));
+       var c=Number(prompt("Enter one more number"));
+       var max=a>b&&a>c?a:(b>c?b:c);
+       console.log("The maximum number is: ",max);
+         var min=a<b&&a<c?a:(b<c?b:c);  
+         console.log("The minimum number is: ",min);
+
+       var mid=(a+b+c)-max-min;
+       console.log("The middle number is: ",mid);
+    </script>
+ </body>
+ </html> -->
+
+ <!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Task3</h1>  
+    <script>
+    console.log("hello there");
+    var userid=userid=prompt("Enter your user id");
+    var password=prompt("Enter your password");
+    if(userid=="admin" && password=="admin123"){
+        console.log("Login successful");
+    }
+    else if(userid=="admin"){
+        console.log("Incorrect password");
+    }
+    else if(password=="admin123"){
+        console.log("Incorrect user id");
+    }
+    else{
+        console.log("Login failed");
+    }
+    </script>
+</body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>task4</h1>
+    <script>
+        var unit=Number(("enter the number of units consumed"));
+        if(units<100)
+    {
+        var bill=units*2;
+        console.log("Your bill is:"+bill+'₹');
+    }
+    else if(units>100&&units<200)
+    {
+        var bill=(100*2)+((units-100)*3);
+        console.log("Your bill is:"+bill+'₹');
+    }
+    else if(units>200)
+    {
+        var bill=(100*2)+(100*3)+((units-200)*5);
+    } 
+    </script>
+</body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Password Setup</title>
+</head>
+<body>
+
+    <h1>Select a Password</h1>
+
+    <script>
+        let password = prompt("Enter your new password:");
+        let hasValidLength = password.length >= 8;
+        let hasUppercase   = /[A-Z]/.test(password);
+        let hasNumber      = /\d/.test(password);
+        let hasSpecialChar = /[\W_]/.test(password);
+
+       
+        console.log("--- Password Check Results ---");
+
+        if (hasValidLength && hasUppercase && hasNumber && hasSpecialChar) {
+           
+            console.log("Success: All conditions met!");
+        } 
+        else {
+            
+            if (!hasValidLength) {
+                console.log(" Missing: Must be at least 8 characters long.");
+            }
+            if (!hasUppercase) {
+                console.log(" Missing: Must contain at least 1 uppercase letter.");
+            }
+            if (!hasNumber) {
+                console.log(" Missing: Must contain at least 1 number.");
+            }
+            if (!hasSpecialChar) {
+                console.log(" Missing: Must contain at least 1 special character (like !, @, #, $).");
+            }
+        }
+    </script>
+
+</body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Task 6</h1>
+    <script>
+        var billAmount = parseFloat(prompt("Enter the total bill amount:"));
+        if (billAmount >= 1000) {
+            var discount = billAmount * 0.05;
+            var finalAmount = billAmount - discount;
+            console.log("Congratulations! You get a 10% discount.");
+            console.log("Original Bill Amount: ₹" + billAmount.toFixed(2));
+            console.log("Discount Amount: ₹" + discount.toFixed(2));
+            console.log("Final Bill Amount after Discount: ₹" + finalAmount.toFixed(2));
+        } 
+        else if (billAmount >= 5000) {
+            var discount = billAmount * 0.2;
+            var finalAmount = billAmount - discount;
+            console.log("Good news! You get a 20% discount.");
+            console.log("Original Bill Amount: ₹" + billAmount.toFixed(2));
+            console.log("Discount Amount: ₹" + discount.toFixed(2));
+            console.log("Final Bill Amount after Discount: ₹" + finalAmount.toFixed(2));
+        }
+        else if (billAmount >= 3000) {
+            var discount = billAmount * 0.1;
+            var finalAmount = billAmount - discount;
+            console.log("Amazing! You get a 10% discount.");
+            console.log("Original Bill Amount: ₹" + billAmount.toFixed(2));
+            console.log("Discount Amount: ₹" + discount.toFixed(2));
+            console.log("Final Bill Amount after Discount: ₹" + finalAmount.toFixed(2));
+        }
+        else {
+            console.log("No discount applied. Your bill amount is ₹" + billAmount.toFixed(2));
+        }
+    </script>
+</body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Task 7</h1>
+    <script>
+        var num1 = Number(prompt("Enter a number:"));
+        var num2 = Number(prompt("Enter another number:"));
+        var choice = Number(prompt("Choose an operation:\n1. Addition\n2. Subtraction\n3. Multiplication\n4. Division"));
+        switch (choice) {
+            case 1:
+                console.log("Result: " + (num1 + num2));
+                break;
+            case 2:
+                console.log("Result: " + (num1 - num2));
+                break;
+            case 3:
+                console.log("Result: " + (num1 * num2));
+                break;
+            case 4:
+                if (num2 !== 0) {
+                    console.log("Result: " + (num1 / num2));
+                } else {
+                    console.log("Error: Division by zero is not allowed.");
+                }
+                break;
+            default:
+                console.log("Invalid choice. Please select a valid operation.");
+        }
+    </script>
+</body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Task 8</h1>
+    <script>
+        var balance = Number(prompt("Enter your current account balance:"));
+        var choice = Number(prompt("Choose a transaction:\n1. Exit\n2. Deposit\n3. Withdraw\n4. Check Balance"));
+        switch (choice) {
+            case 1:
+                console.log("Thank you for using our services. Goodbye!");
+                break;
+            case 2:
+                var depositAmount = Number(prompt("Enter the amount to deposit:"));
+                balance += depositAmount;
+                console.log("Deposit successful! Your new balance is: ₹" + balance);
+                break;
+            case 3:
+                var withdrawAmount = Number(prompt("Enter the amount to withdraw:"));
+                if (withdrawAmount <= balance) {
+                    balance -= withdrawAmount;
+                    console.log("Withdrawal successful! Your new balance is: ₹" + balance);
+                } else {
+                    console.log("Error: Insufficient funds. Your current balance is: ₹" + balance);
+                }
+                break;
+            case 4:
+                console.log("Your current account balance is: ₹" + balance);
+                break;
+            default:
+                console.log("Invalid choice. Please select a valid transaction.");
+        }
+    </script>
+</body>
+</html> -->
+
