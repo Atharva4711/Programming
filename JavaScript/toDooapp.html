@@ -60,14 +60,13 @@
     </div>
 
     <script>
-        // Parallel arrays to track tasks and their completed status
         let arr = [];           
         let completedArr = [];  
         
         let task = document.getElementById("todo");
         let list = document.getElementById("todolist");
 
-        // 1. Function to add a task
+        
         function addTodo() {
             if (task.value == "") {
                 alert("Please type something first!");
@@ -81,14 +80,14 @@
             renderTodo();               
         }
 
-        // 2. Function to delete a task
+        
         function deleteTodo(index) {
             arr.splice(index, 1);          
             completedArr.splice(index, 1); 
             renderTodo();                  
         }
 
-        // 3. Function to mark a task as complete / incomplete
+        
         function toggleComplete(index) {
             if (completedArr[index] == false) {
                 completedArr[index] = true;
@@ -98,7 +97,7 @@
             renderTodo(); 
         }
 
-        // 4. Function to update a task
+        
         function updateTodo(index) {
             let newText = prompt("Change your task to:", arr[index]);
             
@@ -108,12 +107,9 @@
             }
         }
 
-        // 5. Function to display the tasks using forEach
+
         function renderTodo() {
-            list.innerHTML = ""; // Clear the list before rebuilding it
-            
-            // Loop through 'arr' using forEach. 
-            // 'val' is the task string, 'index' is the number position (0, 1, 2...)
+            list.innerHTML = ""; 
             arr.forEach(function(val, index) {
                 
                 let textClass = "";
@@ -121,7 +117,7 @@
                     textClass = "done";
                 }
 
-                // Building the HTML string using standard quotes and '+' signs
+               
                 let itemHtml = "<li>" +
                     "<span class='" + textClass + "'>" + val + "</span> " +
                     "<button onclick='toggleComplete(" + index + ")'>Complete</button> " +
@@ -129,7 +125,7 @@
                     "<button onclick='deleteTodo(" + index + ")'>Delete</button>" +
                 "</li>";
 
-                // Append the item to the screen
+               
                 list.innerHTML = list.innerHTML + itemHtml;
             });
         }
