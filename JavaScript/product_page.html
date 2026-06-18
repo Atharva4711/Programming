@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Product Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .action-btn {
+            padding: 12px 24px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .action-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .product-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap; 
+        }
+
+        .product-card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            width: 220px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            text-align: left;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 12px;
+            background-color: #eaeaea;
+        }
+
+        .product-card h3 {
+            margin: 0 0 8px 0;
+            color: #333;
+            font-size: 18px;
+        }
+
+        .category-badge {
+            display: inline-block;
+            background-color: #e2e8f0;
+            color: #4a5568;
+            padding: 3px 8px;
+            font-size: 11px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            text-transform: capitalize;
+        }
+
+        .price {
+            margin: 8px 0 0 0;
+            font-weight: bold;
+            color: #2b6cb0;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Our Featured Store</h1>
+    
+    <button class="action-btn" onclick="showProducts()">Show Products</button>
+    
+    <div id="productDisplay" class="product-container"></div>
+
+    <script>
+        let products = [
+            { 
+                name: "Classic Chronograph", 
+                category: "watch", 
+                price: "₹12,499", 
+                imgUrl: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=400" 
+            },
+            { 
+                name: "Smartphone X1", 
+                category: "phone", 
+                price: "₹64,999", 
+                imgUrl: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400" 
+            },
+            { 
+                name: "Wireless ANC Pro", 
+                category: "headphone", 
+                price: "₹16,999", 
+                imgUrl: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400" 
+            },
+            { 
+                name: "Ocean Breeze", 
+                category: "perfume", 
+                price: "₹6,999", 
+                imgUrl: "https://images.unsplash.com/photo-1541643600914-78b084683601?w=400" 
+            }
+        ];
+
+        let displayArea = document.getElementById("productDisplay");
+
+        function showProducts() {
+            displayArea.innerHTML = "";
+
+            products.forEach(function(item) {
+                let cardHtml = `
+                    <div class="product-card">
+                        <img class="product-image" src="${item.imgUrl}" alt="${item.name}">
+                        <span class="category-badge">${item.category}</span>
+                        <h3>${item.name}</h3>
+                        <p class="price">${item.price}</p>
+                    </div>
+                `;
+
+                displayArea.innerHTML = displayArea.innerHTML + cardHtml;
+            });
+        }
+    </script>
+</body>
+</html>
