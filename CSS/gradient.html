@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Wheel Pie Chart</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .color-wheel {
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            border: 2px solid #333333;
+            background: conic-gradient(
+                #e52521 0deg 45deg,
+                #237f31 45deg 90deg,
+                #2653cc 90deg 135deg,
+                #df9b34 135deg 180deg,
+                #e2df39 180deg 225deg,
+                #191919 225deg 270deg,
+                #e7b1b9 270deg 315deg,
+                #41c2cb 315deg 360deg
+            );
+        }
+    </style>
+</head>
+<body>
+
+    <div class="color-wheel"></div>
+
+</body>
+</html>

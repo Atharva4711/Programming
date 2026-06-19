@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Concept</title>
+    
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/128/747/747376.png" type="image/png">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .login-container {
+            background-color: #16161a;
+            padding: 50px 40px;
+            border-radius: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            width: 340px;
+            height: 600px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .title-side {
+            color: #ffffff;
+            font-size: 32px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .form-side {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 35px;
+            width: 100%;
+            flex-grow: 1;
+            padding: 40px 0;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .form-icon {
+            font-size: 28px;
+            color: #3b82f6;
+        }
+
+        .horizontal-line {
+            width: 180px;
+            height: 2px;
+            background-color: #ffffff;
+            opacity: 0.8;
+        }
+
+        .btn-side {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .submit-btn {
+            background-color: #ffffff;
+            color: #16161a;
+            border: none;
+            padding: 15px 45px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            cursor: pointer;
+            width: 80%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        
+        <div class="title-side">SIGN IN</div>
+
+        <div class="form-side">
+            <div class="input-group">
+                <i class="fa-regular fa-user form-icon"></i>
+                <div class="horizontal-line"></div>
+            </div>
+
+            <div class="input-group">
+                <i class="fa-regular fa-envelope form-icon"></i>
+                <div class="horizontal-line"></div>
+            </div>
+
+            <div class="input-group">
+                <i class="fa-solid fa-phone form-icon"></i>
+                <div class="horizontal-line"></div>
+            </div>
+        </div>
+
+        <div class="btn-side">
+            <button class="submit-btn">SIGN IN</button>
+        </div>
+
+    </div>
+
+</body>
+</html>

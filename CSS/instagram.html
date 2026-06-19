@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gradient Logo</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .logo-container {
+            width: 250px;
+            height: 250px;
+            border-radius: 56px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* Simple 2-color linear gradient */
+            background: linear-gradient(135deg, #FF69B4, #4169E1);
+        }
+
+        .camera-outer {
+            width: 175px;
+            height: 175px;
+            border-radius: 46px;
+            border: 18px solid white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .camera-center-lens {
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            border: 18px solid white;
+        }
+
+        .camera-corner-dot {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background-color: white;
+            position: absolute;
+            top: 25px;
+            right: 25px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="logo-container">
+        <div class="camera-outer">
+            <div class="camera-center-lens"></div>
+            <div class="camera-corner-dot"></div>
+        </div>
+    </div>
+
+</body>
+</html>
