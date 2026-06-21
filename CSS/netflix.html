@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix India - Watch TV Shows Online, Watch Movies Online</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: #ffffff;
+            background-image: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.6) 100%), url('https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?w=1600');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 10%;
+        }
+
+        .logo {
+            width: 150px;
+            height: auto;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .lang-btn {
+            background-color: rgba(0, 0, 0, 0.6);
+            color: #ffffff;
+            border: 1px solid #ffffff;
+            padding: 6px 16px;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .signin-btn {
+            background-color: #e50914;
+            color: #ffffff;
+            border: none;
+            padding: 6px 16px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .hero-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 100px 5%;
+            margin-top: 20px;
+        }
+
+        .hero-title {
+            font-size: 48px;
+            font-weight: 900;
+            margin: 0 0 16px 0;
+            max-width: 800px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .hero-subtitle {
+            font-size: 24px;
+            font-weight: 400;
+            margin: 0 0 24px 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .hero-desc {
+            font-size: 20px;
+            font-weight: 400;
+            margin: 0 0 20px 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .cta-form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+            max-width: 700px;
+        }
+
+        .email-input {
+            flex-grow: 1;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.75);
+            border: 1px solid #8c8c8c;
+            border-radius: 4px;
+            color: #ffffff;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .email-input:focus {
+            border-color: #ffffff;
+            box-shadow: 0 0 0 2px #ffffff;
+        }
+
+        .get-started-btn {
+            background-color: #e50914;
+            color: #ffffff;
+            border: none;
+            padding: 18px 36px;
+            font-size: 24px;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .get-started-btn:hover {
+            background-color: #c40812;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix Logo">
+        <div class="nav-buttons">
+            <button class="lang-btn">English</button>
+            <button class="signin-btn">Sign In</button>
+        </div>
+    </div>
+
+    <div class="hero-container">
+        <h1 class="hero-title">Unlimited movies, TV shows and more</h1>
+        <p class="hero-subtitle">Watch anywhere. Cancel anytime.</p>
+        <p class="hero-desc">Ready to watch? Enter your email to create or restart your membership.</p>
+        
+        <div class="cta-form">
+            <input type="email" class="email-input" placeholder="Email address">
+            <button class="get-started-btn">Get Started &gt;</button>
+        </div>
+    </div>
+
+</body>
+</html>
