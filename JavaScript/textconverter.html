@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Case Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .converter-box {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 450px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #333333;
+        }
+
+        textarea {
+            width: 100%;
+            height: 150px;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            resize: none;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        textarea:focus {
+            border-color: #007bff;
+        }
+
+        .btn-container {
+            margin-top: 15px;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .clear-btn {
+            background-color: #6c757d;
+        }
+
+        .clear-btn:hover {
+            background-color: #5a6268;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="converter-box">
+        <h2>Text Case Converter</h2>
+        
+        <textarea id="textInput" placeholder="Type or paste your text here..."></textarea>
+        
+        <div class="btn-container">
+            <button onclick="convertToUpper()">UPPERCASE</button>
+            <button onclick="convertToLower()">lowercase</button>
+            <button class="clear-btn" onclick="clearText()">Clear</button>
+        </div>
+    </div>
+
+    <script>
+        let textarea = document.getElementById("textInput");
+
+        function convertToUpper() {
+            textarea.value = textarea.value.toUpperCase();
+        }
+
+        function convertToLower() {
+            textarea.value = textarea.value.toLowerCase();
+        }
+
+        document.get
+        function clearText() {
+            textarea.value = "";
+        }
+    </script>
+
+</body>
+</html>
