@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Product Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .controls-container {
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+           flex-wrap: wrap;
+        }
+
+        .search-bar {
+            padding: 10px 15px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            width: 300px;
+            outline: none;
+        }
+
+        .search-bar:focus {
+            border-color: #007bff;
+        }
+
+        .filter-select {
+            padding: 10px 15px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            background-color: white;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .product-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap; 
+        }
+
+        .product-card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            width: 220px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            text-align: left;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 12px;
+            background-color: #eaeaea;
+        }
+
+        .product-card h3 {
+            margin: 0 0 8px 0;
+            color: #333;
+            font-size: 18px;
+        }
+
+        .category-badge {
+            display: inline-block;
+            background-color: #e2e8f0;
+            color: #4a5568;
+            padding: 3px 8px;
+            font-size: 11px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            text-transform: capitalize;
+        }
+
+        .price {
+            margin: 8px 0 0 0;
+            font-weight: bold;
+            color: #2b6cb0;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Our Featured Store</h1>
+    
+    <div class="controls-container">
+        <input type="text" id="searchBar" class="search-bar" placeholder="Search by category (e.g., watch, phone)..." oninput="updateDisplay()">
+        
+        <select id="priceFilter" class="filter-select" onchange="updateDisplay()">
+            <option value="default">Sort By Price</option>
+            <option value="lowToHigh">Low to High</option>
+            <option value="highToLow">High to Low</option>
+        </select>
+    </div>
+    
+    <div id="productDisplay" class="product-container"></div>
+
+    <script>
+        let products = [
+            { 
+                name: "Classic Chronograph", 
+                category: "watch", 
+                price: 12499, 
+                imgUrl: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=400" 
+            },
+            { 
+                name: "Minimalist Leather", 
+                category: "watch", 
+                price: 8999, 
+                imgUrl: "https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?w=400" 
+            },
+            { 
+                name: "Sport Smartwatch Pro", 
+                category: "watch", 
+                price: 24999, 
+                imgUrl: "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=400" 
+            },
+            { 
+                name: "Smartphone X1", 
+                category: "phone", 
+                price: 64999, 
+                imgUrl: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400" 
+            },
+            { 
+                name: "Pixel Note Pro", 
+                category: "phone", 
+                price: 45999, 
+                imgUrl: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400" 
+            },
+            { 
+                name: "Lite Phone Slim", 
+                category: "phone", 
+                price: 19999, 
+                imgUrl: "https://images.unsplash.com/photo-1565630916779-e303be97b6f5?w=400" 
+            },
+            { 
+                name: "Wireless ANC Pro", 
+                category: "headphone", 
+                price: 16999, 
+                imgUrl: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400" 
+            },
+            { 
+                name: "Studio Over-Ear Audio", 
+                category: "headphone", 
+                price: 29999, 
+                imgUrl: "https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=400" 
+            },
+            { 
+                name: "Sport Wireless Buds", 
+                category: "headphone", 
+                price: 4999, 
+                imgUrl: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400" 
+            },
+            { 
+                name: "Ocean Breeze", 
+                category: "perfume", 
+                price: 6999, 
+                imgUrl: "https://images.unsplash.com/photo-1541643600914-78b084683601?w=400" 
+            },
+            { 
+                name: "Midnight Musk", 
+                category: "perfume", 
+                price: 9500, 
+                imgUrl: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=400" 
+            },
+            { 
+                name: "Citrus Bloom Intense", 
+                category: "perfume", 
+                price: 3499, 
+                imgUrl: "https://images.unsplash.com/photo-1594035910387-fea47794261f?w=400" 
+            }
+        ];
+
+        let displayArea = document.getElementById("productDisplay");
+        let searchBar = document.getElementById("searchBar");
+        let priceFilter = document.getElementById("priceFilter");
+
+        function updateDisplay() {
+            displayArea.innerHTML = "";
+            
+            let searchText = searchBar.value.toLowerCase();
+            let filterValue = priceFilter.value;
+
+            let filteredProducts = products.filter(function(item) {
+                return item.category.toLowerCase().includes(searchText);
+            });
+
+            if (filterValue === "lowToHigh") {
+                filteredProducts.sort(function(a, b) {
+                    return a.price - b.price;
+                });
+            } else if (filterValue === "highToLow") {
+                filteredProducts.sort(function(a, b) {
+                    return b.price - a.price;
+                });
+            }
+
+            filteredProducts.forEach(function(item) {
+                let cardHtml = `
+                    <div class="product-card">
+                        <img class="product-image" src="${item.imgUrl}" alt="${item.name}">
+                        <span class="category-badge">${item.category}</span>
+                        <h3>${item.name}</h3>
+                        <p class="price">₹${item.price.toLocaleString('en-IN')}</p>
+                    </div>
+                `;
+                displayArea.innerHTML = displayArea.innerHTML + cardHtml;
+            });
+        }
+
+        updateDisplay();
+    </script>
+</body>
+</html>
