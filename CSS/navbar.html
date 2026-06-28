@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Navbar</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+        }
+
+        .navbar {
+            background-color: #333333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+        }
+
+        .logo {
+            color: #ffffff;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+            transition-duration: 0.3s;
+        }
+
+        .logo:hover {
+            color: #007bff;
+            transform: scale(1.1);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-item {
+            color: #cccccc;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition-duration: 0.4s;
+            transition-timing-function: ease;
+        }
+
+        .nav-item:link {
+            color: #cccccc;
+        }
+
+        .nav-item:visited {
+            color: #cccccc;
+        }
+
+        .nav-item:hover {
+            color: #ffffff;
+            background-color: #007bff;
+        }
+
+        .nav-item:active {
+            background-color: #0056b3;
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="#" class="logo">MyStore</a>
+        
+        <div class="nav-links">
+            <a href="#" class="nav-item">Home</a>
+            <a href="#" class="nav-item">Products</a>
+            <a href="#" class="nav-item">About</a>
+            <a href="#" class="nav-item">Contact</a>
+        </div>
+    </nav>
+
+</body>
+</html>
