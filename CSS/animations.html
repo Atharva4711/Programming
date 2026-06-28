@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            height: 100px;
+            width: 100px;
+            border: 5px solid;
+            border-radius: 50%;
+            border-bottom: none;
+            animation-name: loader;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+        }
+        @keyframes loader {
+            from{
+                 transform: rotate(0deg);
+            }
+            to{
+               transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            height: 100px;
+            width: 100px;
+            background-color: purple;
+            position: relative;
+            animation-name: box;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            animation-delay: 5s;
+        }
+        div:hover{
+            animation-play-state: paused;
+        }
+        @keyframes box {
+            0%{
+               top: 0px;
+               left: 0px;
+            }
+            25%{
+                  top: 0px;
+                  left: 500px;
+            }
+            50%{
+                top: 500px;
+                left: 500px;
+
+            }
+            75%{
+                 left: 0px;
+                 top: 500px;
+            }
+            100%{
+                top: 0px;
+                left: 0px;
+            }
+           
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            height: 100px;
+            width: 100px;
+            border: 1px solid;
+            margin: 20px;
+            animation-name: box;
+            position: relative;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+           
+        }
+       @keyframes box {
+           from{
+              left: 0px;
+           }
+           to{
+             left:1000px
+           }
+       }
+
+        #box1{
+            background-color: red;
+            animation-timing-function: ease;
+        }
+        #box2{
+            background-color: yellow;
+            animation-timing-function: ease-in;
+        }
+        #box3{
+            background-color: purple;
+            animation-timing-function: ease-out;
+        }
+        #box4{
+            background-color: yellowgreen;
+            animation-timing-function: ease-in-out;
+        }
+    </style>
+</head>
+<body>
+      <div class="box" id="box1"></div>
+      <div class="box" id="box2"></div>
+      <div class="box" id="box3"></div>
+      <div class="box" id="box4"></div>
+</body>
+</html>
