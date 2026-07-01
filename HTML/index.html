@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atharva Teli - Professional Portfolio</title>
+    <style>
+        /* Modern CSS Variables for Easy Customization */
+        :root {
+            --bg-dark: #0a0b10;
+            --card-glass: rgba(255, 255, 255, 0.03);
+            --border-glass: rgba(255, 255, 255, 0.08);
+            --accent-glow: #6366f1;
+            --accent-glow-secondary: #a855f7;
+            --text-main: #ffffff;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        /* 1. GLASSMORPHISM NAVIGATION */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(10, 11, 16, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-glass);
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-decoration: none;
+            color: var(--text-main);
+        }
+
+        .logo span {
+            color: var(--accent-glow);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--text-main);
+            transform: translateY(-1px);
+        }
+
+        /* Common Section Styling */
+        section {
+            padding: 100px 8% 60px 8%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 50px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 50px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-glow), var(--accent-glow-secondary));
+            border-radius: 2px;
+        }
+
+        /* 2. HERO / INTRODUCTION SECTION */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .hero-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .hero-tag {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--accent-glow);
+            padding: 6px 16px;
+            font-size: 12px;
+            font-weight: 600;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 20px;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        .hero-content h1 {
+            font-size: 52px;
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
+
+        .hero-content h1 span {
+            background: linear-gradient(90deg, var(--accent-glow), var(--accent-glow-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-content p {
+            color: var(--text-muted);
+            font-size: 17px;
+            margin-bottom: 35px;
+            max-width: 540px;
+        }
+
+        .btn-container {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn {
+            padding: 12px 28px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, var(--accent-glow), var(--accent-glow-secondary));
+            color: var(--text-main);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.2);
+        }
+
+        .btn-secondary {
+            border: 1px solid var(--border-glass);
+            color: var(--text-main);
+            background: var(--card-glass);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .hero-avatar-wrap {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-width: 300px;
+        }
+
+        .avatar-box {
+            width: 320px;
+            height: 320px;
+            background: linear-gradient(45deg, var(--accent-glow), var(--accent-glow-secondary));
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQZEii11I6Y5Lj-Tmo37L7dl7jzHr6hylD-snE-kvzKg&s=10');
+            background-size: cover;
+            background-position: center;
+            animation: morphingShape 8s ease-in-out infinite alternate;
+            box-shadow: 0 15px 35px rgba(99, 102, 241, 0.15);
+        }
+
+        @keyframes morphingShape {
+            0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+            100% { border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%; }
+        }
+
+        /* 3. SKILLS & LANGUAGES SECTION */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .skills-panel {
+            background: var(--card-glass);
+            border: 1px solid var(--border-glass);
+            padding: 35px;
+            border-radius: 12px;
+            backdrop-filter: blur(6px);
+        }
+
+        .skills-panel h3 {
+            margin-bottom: 25px;
+            font-size: 20px;
+            color: var(--text-main);
+        }
+
+        .skill-bar-wrap {
+            margin-bottom: 20px;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .skill-name { color: var(--text-main); font-weight: 500; }
+        .skill-percentage { color: var(--text-muted); }
+
+        .progress-track {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-glow), var(--accent-glow-secondary));
+            border-radius: 10px;
+            width: 0%; 
+            transition: width 1.5s cubic-bezier(0.1, 1, 0.1, 1);
+        }
+
+        .tech-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .chip {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-glass);
+            color: var(--text-muted);
+            padding: 8px 16px;
+            font-size: 14px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .chip:hover {
+            border-color: var(--accent-glow);
+            color: var(--text-main);
+            background: rgba(99, 102, 241, 0.05);
+            transform: translateY(-2px);
+        }
+
+        /* 4. WORK DONE / PROJECTS SECTION */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: var(--card-glass);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(99, 102, 241, 0.3);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .project-img-frame {
+            height: 190px;
+            background-color: #161722;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-img-frame img {
+            width: 100%;
+            height: 110%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-img-frame img {
+            transform: scale(1.06);
+        }
+
+        .project-body {
+            padding: 25px;
+        }
+
+        .project-body h4 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .project-body p {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 20px;
+            height: 66px;
+            overflow: hidden;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .p-tag {
+            font-size: 11px;
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--accent-glow);
+            padding: 3px 8px;
+            border-radius: 4px;
+            border: 1px solid var(--border-glass);
+        }
+
+        /* 5. CONTACT SECTION */
+        .contact-wrapper {
+            max-width: 600px;
+            margin: 0 auto;
+            width: 100%;
+            background: var(--card-glass);
+            border: 1px solid var(--border-glass);
+            padding: 40px;
+            border-radius: 12px;
+        }
+
+        .form-row {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 20px;
+        }
+
+        .form-row label {
+            font-size: 13px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-row input, .form-row textarea {
+            background: rgba(0,0,0,0.2);
+            border: 1px solid var(--border-glass);
+            padding: 14px;
+            color: var(--text-main);
+            font-size: 14px;
+            border-radius: 6px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-row input:focus, .form-row textarea:focus {
+            border-color: var(--accent-glow);
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: linear-gradient(90deg, var(--accent-glow), var(--accent-glow-secondary));
+            border: none;
+            color: var(--text-main);
+            padding: 14px;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: opacity 0.3s;
+        }
+
+        .btn-submit:hover {
+            opacity: 0.9;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 768px) {
+            .navbar { padding: 20px 5%; }
+            .nav-links { display: none; } 
+            .hero { flex-direction: column-reverse; padding-top: 120px; text-align: center; }
+            .hero-content h1 { font-size: 38px; }
+            .hero-content p { margin: 0 auto 30px auto; }
+            .btn-container { justify-content: center; }
+            .avatar-box { width: 260px; height: 260px; }
+            section { padding: 80px 5% 40px 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="#" class="logo">Atharva<span>.Dev</span></a>
+        <div class="nav-links">
+            <a href="#" class="nav-link">Home</a>
+            <a href="#about" class="nav-link">Skills</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-tag">Diploma Student</span>
+            <h1>Hi, I am <span>Atharva Teli</span><br>Diploma Intern</h1>
+            <p>I am a driven technical diploma student focused on mastering core software engineering mechanics, responsive interface creation, and highly functional codebases.</p>
+            <div class="btn-container">
+                <a href="#projects" class="btn btn-primary">See My Work</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
+        </div>
+        <div class="hero-avatar-wrap">
+            <div class="avatar-box"></div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title">Skills & Capabilities</h2>
+        <div class="skills-container">
+            
+            <div class="skills-panel">
+                <h3>Languages Learned</h3>
+                
+                <div class="skill-bar-wrap">
+                    <div class="skill-info">
+                        <span class="skill-name">JavaScript</span>
+                        <span class="skill-percentage">50%</span>
+                    </div>
+                    <div class="progress-track">
+                        <div class="progress-fill" data-progress="50%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-bar-wrap">
+                    <div class="skill-info">
+                        <span class="skill-name">HTML5 / CSS</span>
+                        <span class="skill-percentage">70%</span>
+                    </div>
+                    <div class="progress-track">
+                        <div class="progress-fill" data-progress="70%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skills-panel">
+                <h3>Frameworks & Tools</h3>
+                <div class="tech-chips">
+                    <div class="chip">Node.js</div>                  
+                    <div class="chip">Git & GitHub</div>
+                    <div class="chip">SQL</div>
+                    <div class="chip">PL/SQL</div>
+                    <div class="chip">Antigravity</div>
+                    
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2 class="section-title">Projects Accomplished</h2>
+        <div class="projects-grid">
+            
+            <div class="project-card">
+                <div class="project-img-frame">
+                    <img src="https://cdn.vectorstock.com/i/1000v/40/60/student-chooses-correct-answer-in-test-online-quiz-vector-48404060.jpg" alt="Quiz Website">
+                </div>
+                <div class="project-body">
+                    <h4>Quiz Website</h4>
+                    <p>An interactive quiz platform built with modern web technologies.which provides result insights</p>
+                    <div class="project-tags">
+                        <span class="p-tag">JavaScript</span>
+                        <span class="p-tag">HTML/CSS</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-img-frame">
+                    <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=500" alt="Portfolio Site Screenshot">
+                </div>
+                <div class="project-body">
+                    <h4>Immersive PhotoFolio</h4>
+                    <p>A completely responsive structural template targeting photography portfolios with full CSS keyframe timeline movements and transition hooks.</p>
+                    <div class="project-tags">
+                        <span class="p-tag">CSS Grid</span>
+                        <span class="p-tag">Transitions</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-img-frame">
+                    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/52/24/3b/lukshmi-vilas-palace.jpg?w=1200&h=-1&s=1" alt="State Website">
+                </div>
+                <div class="project-body">
+                    <h4>State Website</h4>
+                    <p>A responsive website for showcasing state information and services and its special features.</p>
+                    <div class="project-tags">
+                        <span class="p-tag">Node.js</span>
+                        <span class="p-tag">HTML/CSS</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">Drop a Message</h2>
+        <div class="contact-wrapper">
+            <form onsubmit="event.preventDefault(); alert('Message successfully transmitted!');">
+                <div class="form-row">
+                    <label>Full Name</label>
+                    <input type="text" placeholder="Your Name" required>
+                </div>
+                <div class="form-row">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="you@example.com" required>
+                </div>
+                <div class="form-row">
+                    <label>Message Text</label>
+                    <textarea rows="5" placeholder="Let's build something exceptional..." required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', function() {
+            let progressBars = document.querySelectorAll('.progress-fill');
+            progressBars.forEach(function(bar) {
+                let targetWidth = bar.getAttribute('data-progress');
+                bar.style.width = targetWidth;
+            });
+        });
+    </script>
+</body>
+</html>
