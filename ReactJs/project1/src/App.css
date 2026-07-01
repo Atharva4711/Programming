@@ -1,0 +1,107 @@
+/* Reset and center everything */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #a855f7, #ec4899); /* Purple to Pink gradient */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* The White Card */
+.form-card {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  width: 380px;
+  text-align: center;
+}
+
+.form-card h2 {
+  margin-bottom: 20px;
+  color: #111;
+  font-weight: 600;
+}
+
+/* Toggle Tabs (Login / Signup) */
+.toggle-container {
+  display: flex;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 25px;
+}
+
+.toggle-btn {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background: #fff;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.toggle-btn.active {
+  background: linear-gradient(135deg, #a855f7, #ec4899);
+  color: white;
+}
+
+/* Input Fields */
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #a855f7;
+}
+
+/* Links */
+.forgot-pass {
+  display: block;
+  text-align: left;
+  color: #ec4899;
+  font-size: 13px;
+  text-decoration: none;
+  margin-bottom: 20px;
+}
+
+/* Submit Button */
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #a855f7, #ec4899);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.submit-btn:hover {
+  opacity: 0.9;
+}
+
+/* Footer member text */
+.signup-text {
+  font-size: 14px;
+  color: #555;
+}
+
+.signup-text span {
+  color: #ec4899;
+  cursor: pointer;
+}
