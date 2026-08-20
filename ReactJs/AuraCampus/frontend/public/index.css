@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+
+:root {
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: 'Outfit', sans-serif;
+}
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #F8FAFC;
+}
+
+h1, h2, h3, h4, .font-heading {
+  font-family: 'Outfit', sans-serif;
+}
+
+/* No-screenshot protection: subtle moving watermark + selection block on QR view */
+.no-shot {
+  user-select: none;
+  -webkit-user-select: none;
+  position: relative;
+}
+.no-shot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(45deg, rgba(79,70,229,0.02) 0 4px, transparent 4px 8px);
+  animation: aura-shift 3s linear infinite;
+}
+@keyframes aura-shift {
+  0% { background-position: 0 0; }
+  100% { background-position: 32px 32px; }
+}
+.blur-when-hidden.hidden-tab {
+  filter: blur(20px) grayscale(1);
+  transition: filter .2s ease;
+}
+
+/* Sidebar link */
+.aura-sidebar-link {
+  display: flex; align-items: center; gap: .75rem;
+  padding: .625rem .875rem; border-radius: 12px;
+  color: #94A3B8; font-weight: 500; font-size: .9rem;
+  transition: background-color .15s ease, color .15s ease;
+}
+.aura-sidebar-link:hover { background: #1E293B; color: #F8FAFC; }
+.aura-sidebar-link.active {
+  background: linear-gradient(135deg, #4F46E5 0%, #6366F1 100%);
+  color: #fff; box-shadow: 0 8px 20px -8px rgba(79,70,229,.6);
+}
+
+.aura-card {
+  background: #fff; border-radius: 1rem;
+  box-shadow: 0 2px 10px -3px rgba(6,81,237,0.08);
+  border: 1px solid rgba(226, 232, 240, 0.7);
+}
+
+.aura-hero {
+  background: linear-gradient(120deg, #4F46E5 0%, #7C3AED 50%, #8B5CF6 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+.aura-hero::before {
+  content: "";
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle at 20% 20%, rgba(255,255,255,.15) 0, transparent 40%),
+                    radial-gradient(circle at 80% 60%, rgba(255,255,255,.08) 0, transparent 40%);
+  pointer-events: none;
+}
+
+.pill { border-radius: 9999px; padding: .25rem .75rem; font-size: .75rem; font-weight: 600; }
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 239 84% 67%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 47% 11%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 239 84% 67%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+}
