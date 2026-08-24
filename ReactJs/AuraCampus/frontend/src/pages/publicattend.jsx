@@ -24,13 +24,32 @@ export default function PublicAttend() {
   }, [token]);
 
   const mark = async () => {
+    if (!navigator.geolocation) {
+      toast.error("Geolocation is not supported by your browser.");
+      return;
+    }
+
     setSubmitting(true);
-    try {
-      const { data } = await api.post("/attendance/mark", { token });
-      setStatus(s => ({ ...s, marked: true }));
-      toast.success(data.message || "Attendance marked");
-    } catch (e) { toast.error(formatApiError(e)); }
-    finally { setSubmitting(false); }
+    navigator.geolocation.getCurrentPosition(
+      async (position) => {
+        try {
+          const payload = {
+            token,
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude
+          };
+          const { data } = await api.post("/attendance/mark", payload);
+          setStatus(s => ({ ...s, marked: true }));
+          toast.success(data.message || "Attendance marked");
+        } catch (e) { toast.error(formatApiError(e)); }
+        finally { setSubmitting(false); }
+      },
+      (geoErr) => {
+        setSubmitting(false);
+        toast.error("Location permission denied. GPS is required to mark attendance.");
+      },
+      { enableHighAccuracy: true, timeout: 10000 }
+    );
   };
 
   return (

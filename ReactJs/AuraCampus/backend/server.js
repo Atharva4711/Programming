@@ -292,6 +292,15 @@ app.get("/api/timetable", auth, loadUser, async (req, res) => {
 app.post("/api/timetable", auth, loadUser, requireRole("teacher"), async (req, res) => {
   const { subject_id, class_name, day, start_time, end_time, room } = req.body || {};
   const subj = await db.collection("subjects").findOne({ id: subject_id });
+  
+  // Conflict Check: No two subjects should overlap for the same class in the same timeslot
+  const conflicting = await db.collection("timetable").find({ class_name, day: Number(day) }).toArray();
+  for (const c of conflicting) {
+    if (start_time < c.end_time && end_time > c.start_time) {
+      return res.status(400).json({ detail: `Timetable conflict! This timeslot overlaps with an existing subject: ${c.subject_name} (${c.start_time} - ${c.end_time}).` });
+    }
+  }
+
   const doc = {
     id: uuidv4(), subject_id, subject_name: subj ? subj.name : "",
     subject_color: subj ? subj.color : "indigo",
@@ -339,13 +348,46 @@ app.get("/api/attendance/public/:token", async (req, res) => {
   });
 });
 
+// Geofencing Constants (Pimpri Chinchwad Polytechnic)
+const CAMPUS_CONFIG = {
+  LATITUDE: 18.6508,
+  LONGITUDE: 73.7663,
+  MAX_DISTANCE_METERS: 500 // Adjust if needed
+};
+
+function calculateDistanceInMeters(lat1, lon1, lat2, lon2) {
+  const R = 6371e3;
+  const radLat1 = (lat1 * Math.PI) / 180;
+  const radLat2 = (lat2 * Math.PI) / 180;
+  const deltaLat = ((lat2 - lat1) * Math.PI) / 180;
+  const deltaLon = ((lon2 - lon1) * Math.PI) / 180;
+  const a = Math.sin(deltaLat / 2) * Math.sin(deltaLat / 2) + Math.cos(radLat1) * Math.cos(radLat2) * Math.sin(deltaLon / 2) * Math.sin(deltaLon / 2);
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
 app.post("/api/attendance/mark", auth, loadUser, requireRole("student"), async (req, res) => {
-  const { token } = req.body || {};
+  const { token, latitude, longitude } = req.body || {};
+  
+  if (latitude === undefined || longitude === undefined) {
+    return res.status(403).json({ detail: "Location access is required to mark attendance." });
+  }
+
+  const distanceMeters = calculateDistanceInMeters(
+    CAMPUS_CONFIG.LATITUDE, CAMPUS_CONFIG.LONGITUDE,
+    parseFloat(latitude), parseFloat(longitude)
+  );
+
+  if (distanceMeters > CAMPUS_CONFIG.MAX_DISTANCE_METERS) {
+    return res.status(403).json({ detail: `Off-campus attempt detected (${Math.round(distanceMeters)}m away). You must be at Pimpri Chinchwad Polytechnic to mark attendance.` });
+  }
+
   const session = await db.collection("attendance_sessions").findOne({ token });
   if (!session) return res.status(404).json({ detail: "Invalid attendance code" });
   if (new Date(session.expires_at) < new Date()) return res.status(400).json({ detail: "Session expired" });
+  
   const existing = await db.collection("attendance_marks").findOne({ session_id: session.id, student_id: req.user.id });
   if (existing) return res.json({ ok: true, message: "Already marked", record: clean(existing) });
+  
   const rec = {
     id: uuidv4(), session_id: session.id, subject_id: session.subject_id,
     subject_name: session.subject_name, student_id: req.user.id, student_name: req.user.name,
@@ -679,101 +721,3 @@ async function seed() {
 (async () => {
   try {
     await connectDb();
-    await seed();
-    try { await initStorage(); console.log("[storage] initialized"); }
-    catch (e) { console.warn("[storage] init deferred:", e.message); }
-    app.listen(PORT, "127.0.0.1", () => console.log(`[express] listening on ${PORT}`));
-  } catch (e) { console.error("[express] fatal:", e); process.exit(1); }
-})();
-
-process.on("SIGTERM", async () => { try { await client.close(); } catch {} process.exit(0); });
-process.on("SIGINT", async () => { try { await client.close(); } catch {} process.exit(0); });
-// Drop old strict enrollment_number index if present, then rebuild as partial
-  // (unique only among string values — nulls/missing are allowed for teachers)
-  try {
-    const idx = await db.collection("users").indexes();
-    for (const i of idx) {
-      if (i.key && i.key.enrollment_number === 1 && !i.partialFilterExpression) {
-        await db.collection("users").dropIndex(i.name);
-      }
-    }
-  } catch {}
-  await db.collection("users").createIndex(
-    { enrollment_number: 1 },
-    { unique: true, partialFilterExpression: { enrollment_number: { $type: "string" } } }
-  );
-  // Teacher: auto-create Subject docs so they show up in dropdowns immediately
-  if (role === "teacher" && Array.isArray(subjects)) {
-    const palette = ["indigo", "orange", "teal", "purple", "pink"];
-    let idx = 0;
-    for (const sname of subjects) {
-      const s = String(sname).trim();
-      if (!s) continue;
-      await db.collection("subjects").insertOne({
-        id: uuidv4(), name: s, code: s.split(/\s+/).map(w => w[0]).join("").toUpperCase() || "SUB",
-        color: palette[idx++ % palette.length],
-        teacher_id: id, teacher_name: name, created_at: nowIso(),
-      });
-    }
-  }
- 
-// 2. Geofence Configuration & Helper
-const CAMPUS_CONFIG = {
-  LATITUDE: 18.6508,
-  LONGITUDE: 73.7663,
-  MAX_DISTANCE_METERS: 100
-};
-
-function calculateDistanceInMeters(lat1, lon1, lat2, lon2) {
-  const R = 6371e3;
-  const radLat1 = (lat1 * Math.PI) / 180;
-  const radLat2 = (lat2 * Math.PI) / 180;
-  const deltaLat = ((lat2 - lat1) * Math.PI) / 180;
-  const deltaLon = ((lon2 - lon1) * Math.PI) / 180;
-
-  const a =
-    Math.sin(deltaLat / 2) * Math.sin(deltaLat / 2) +
-    Math.cos(radLat1) *
-      Math.cos(radLat2) *
-      Math.sin(deltaLon / 2) *
-      Math.sin(deltaLon / 2);
-
-  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-}
-
-// ==========================================
-// 3. PLACE YOUR CODE HERE (ROUTES SECTION)
-// ==========================================
-app.post("/attendance/mark", requireAuth, async (req, res) => {
-  try {
-    const { token, latitude, longitude } = req.body;
-
-    if (latitude === undefined || longitude === undefined) {
-      return res.status(400).json({
-        error: "Location verification failed. GPS coordinates are required."
-      });
-    }
-
-    const distanceMeters = calculateDistanceInMeters(
-      CAMPUS_CONFIG.LATITUDE,
-      CAMPUS_CONFIG.LONGITUDE,
-      parseFloat(latitude),
-      parseFloat(longitude)
-    );
-
-    if (distanceMeters > CAMPUS_CONFIG.MAX_DISTANCE_METERS) {
-      return res.status(403).json({
-        error: `Off-campus attempt detected (${Math.round(distanceMeters)}m away). You must be at Pimpri Chinchwad Polytechnic to mark attendance.`
-      });
-    }
-
-    // Existing Database & Attendance Logic Here...
-
-    return res.json({ message: "Attendance marked successfully!" });
-  } catch (err) {
-    return res.status(500).json({ error: "Failed to process attendance." });
-  }
-});
-
-// 4. Start Server (Must be at the very bottom)
-app.listen(5000, () => console.log("Server running on port 5000"));

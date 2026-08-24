@@ -1,4 +1,4 @@
-import "@/App.css";
+import "@/index.css";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider, useAuth } from "@/context/AuthContext";
 import { Toaster } from "sonner";
@@ -12,8 +12,6 @@ import Timetable from "@/pages/Timetable";
 import Attendance from "@/pages/Attendance";
 import Assignments from "@/pages/Assignments";
 import Quizzes from "@/pages/Quizzes";
-import Notices from "@/pages/Notices";
-import LostFound from "@/pages/LostFound";
 import Profile from "@/pages/Profile";
 import PublicAttend from "@/pages/PublicAttend";
 import Layout from "@/components/Layout";
@@ -49,8 +47,6 @@ function App() {
           <Route path="/attendance" element={<Protected><Attendance /></Protected>} />
           <Route path="/assignments" element={<Protected><Assignments /></Protected>} />
           <Route path="/quizzes" element={<Protected><Quizzes /></Protected>} />
-          <Route path="/notices" element={<Protected><Notices /></Protected>} />
-          <Route path="/lost-found" element={<Protected><LostFound /></Protected>} />
           <Route path="/profile" element={<Protected><Profile /></Protected>} />
         </Routes>
       </BrowserRouter>

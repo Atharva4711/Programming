@@ -135,7 +135,7 @@ export default function Assignments() {
               <p className="text-sm text-slate-600 mt-3 line-clamp-2">{a.description}</p>
               <div className="mt-4 flex items-center gap-3 flex-wrap">
                 {a.file_url && (
-                  <a href={`${process.env.REACT_APP_BACKEND_URL}${a.file_url}`} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()}
+                  <a href={`${import.meta.env.VITE_BACKEND_URL}${a.file_url}`} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()}
                     className="pill bg-slate-100 text-slate-700 inline-flex items-center gap-1">
                     <Download className="w-3 h-3" /> Download
                   </a>
@@ -166,7 +166,7 @@ export default function Assignments() {
             <p className="text-slate-600 mt-3">{active.description}</p>
             <div className="mt-3 text-sm text-slate-500">Due: {active.due_date}</div>
             {active.file_url && (
-              <a href={`${process.env.REACT_APP_BACKEND_URL}${active.file_url}`} target="_blank" rel="noreferrer"
+              <a href={`${import.meta.env.VITE_BACKEND_URL}${active.file_url}`} target="_blank" rel="noreferrer"
                 className="inline-flex items-center gap-2 mt-2 text-indigo-600 text-sm font-semibold">
                 <Download className="w-4 h-4"/> Download attachment
               </a>
@@ -256,7 +256,7 @@ function TeacherReview({ data, onGrade }) {
               <td className="text-center">{r.submitted ? <span className="pill bg-emerald-100 text-emerald-700">Submitted</span> : <span className="pill bg-rose-100 text-rose-700">Pending</span>}</td>
               <td className="text-center">
                 {r.submission?.file_url ? (
-                  <a href={`${process.env.REACT_APP_BACKEND_URL}${r.submission.file_url}`} target="_blank" rel="noreferrer" className="text-indigo-600 text-xs font-semibold">Download</a>
+                  <a href={`${import.meta.env.VITE_BACKEND_URL}${r.submission.file_url}`} target="_blank" rel="noreferrer" className="text-indigo-600 text-xs font-semibold">Download</a>
                 ) : "—"}
               </td>
               <td className="text-center font-semibold">{r.submission?.grade || "—"}</td>
